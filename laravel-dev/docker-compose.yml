@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+    php:
+        image: schanzel/laravel-dev:php7.0
+        # image: schanzel/laravel-dev:php7.1
+        # image: schanzel/laravel-dev:php7.2
+        ports:
+            - "8000:8000"
+        volumes:
+            - ..:/opt/code
+            - ./config/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+        depends_on:
+            - database
+            - memcached
+
+    database:
+        image: mariadb:10.2
+        volumes:
+            - ./data/mariadb:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_USER: myuser
+            MYSQL_PASSWORD: secret
+            MYSQL_DATABASE: mydb
+        ports:
+            - "3306:3306"
+
+    memcached:
+        image: memcached:1.5-alpine
+        ports:
+            - "11211:11211"

@@ -5,3 +5,6 @@ RUN apk add \
 	biber \
 	py-pygments \
 	inkscape
+
+RUN apk search -qe ttf-* | xargs apk add
+

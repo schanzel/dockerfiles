@@ -12,7 +12,8 @@ RUN apk add \
   squashfs-tools \
   wget \
   git \
-  go
+  go \
+  gawk
 
 # make & install
 RUN export GOPATH=${HOME}/go \

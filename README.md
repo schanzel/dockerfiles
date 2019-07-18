@@ -1,2 +1,2 @@
 # dockerfiles
-My Collection of Dockerfiles, Used Mostly in Personal Projects
+Collection of Dockerfiles, Used Mostly in Personal Projects
